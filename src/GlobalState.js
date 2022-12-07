@@ -1,42 +1,37 @@
-import React, { createContext, useEffect, useState } from 'react'
-import ProductsAPI from './api/ProductsAPI'
-import UserAPI from './api/UserAPI'
-import CategoriesAPI from './api/CategoriesAPI'
+import React, { createContext, useEffect, useState } from "react";
+import ProductsAPI from "./api/ProductsAPI";
+import UserAPI from "./api/UserAPI";
+import CategoriesAPI from "./api/CategoriesAPI";
 
-import axios from 'axios'
+import axios from "axios";
 
-export const GlobalState = createContext()
+export const GlobalState = createContext();
 
 export const DataProvider = ({ children }) => {
-    const [token, setToken] = useState('')
+  const [token, setToken] = useState("");
 
-    useEffect(() => {
-        const fristLogin = localStorage.getItem('fristLogin')
-        if (fristLogin) {
-            const refreshToken = async () => {
-                const res = await axios.get('/user/refresh_token')
+  useEffect(() => {
+    const firstLogin = localStorage.getItem("firstLogin");
+    if (firstLogin) {
+      const refreshToken = async () => {
+        const res = await axios.get("/user/refresh_token");
 
-                setToken(res.data.accesstoken)
+        setToken(res.data.accesstoken);
 
-                setTimeout(() => {
-                    refreshToken()
-                }, 15 * 60 * 1000)
-            }
-            refreshToken()
-        }
-    }, [])
- 
-
-    const state = {
-        token: [token, setToken],
-        productsAPI: ProductsAPI(),
-        userAPI: UserAPI(token),
-        categoriesAPI: CategoriesAPI()
+        setTimeout(() => {
+          refreshToken();
+        }, 15 * 60 * 1000);
+      };
+      refreshToken();
     }
+  }, []);
 
-    return (
-        <GlobalState.Provider value={state}>
-            {children}
-        </GlobalState.Provider>
-    )
-}
+  const state = {
+    token: [token, setToken],
+    productsAPI: ProductsAPI(),
+    userAPI: UserAPI(token),
+    categoriesAPI: CategoriesAPI(),
+  };
+
+  return <GlobalState.Provider value={state}>{children}</GlobalState.Provider>;
+};
