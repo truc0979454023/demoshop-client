@@ -127,7 +127,7 @@ function MainPage() {
         ""
       )}
 
-      {productsSale.length !== 0 ? (
+      {productsSale?.length !== 0 ? (
         <div className="show-products ">
           <h3 className="show-products-title">Best sales</h3>
 
@@ -156,7 +156,7 @@ function MainPage() {
         ""
       )}
 
-      {productsNew.length !== 0 ? (
+      {productsNew?.length !== 0 ? (
         <div className="show-products ">
           <h3 className="show-products-title ">Newest</h3>
 
