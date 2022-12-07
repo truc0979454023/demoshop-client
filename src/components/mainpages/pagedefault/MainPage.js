@@ -103,7 +103,7 @@ function MainPage() {
           <h3 className="show-products-title ">Sale Off</h3>
 
           <div className="products">
-            {productsSaleOff.map((product) => {
+            {productsSaleOff?.map((product) => {
               return (
                 <div key={product._id} className="show-products-item">
                   <ProductItem
@@ -132,7 +132,7 @@ function MainPage() {
           <h3 className="show-products-title">Best sales</h3>
 
           <div className="products">
-            {productsSale.map((product) => {
+            {productsSale?.map((product) => {
               return (
                 <div key={product._id} className="show-products-item">
                   <ProductItem
@@ -161,7 +161,7 @@ function MainPage() {
           <h3 className="show-products-title ">Newest</h3>
 
           <div className="products ">
-            {productsNew.map((product) => {
+            {productsNew?.map((product) => {
               return (
                 <div key={product._id} className="show-products-item">
                   <ProductItem
