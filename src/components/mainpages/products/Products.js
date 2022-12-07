@@ -98,7 +98,7 @@ function Products() {
         </div>
       )}
       <div className="products">
-        {products.map((product) => (
+        {products?.map((product) => (
           <ProductItem
             key={product._id}
             product={product}
