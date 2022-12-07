@@ -41,5 +41,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://demoshop-server.onrender.com"
+  "proxy": "https://demoshop-server.onrender.com",
+  "homepage": "."
 }
