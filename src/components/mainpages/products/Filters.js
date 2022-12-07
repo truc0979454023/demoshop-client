@@ -25,7 +25,7 @@ function Filters() {
           {" "}
           All
         </option>
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <option
             onClick={handleCategory}
             value={"category=" + category._id}

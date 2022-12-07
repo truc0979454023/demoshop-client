@@ -165,7 +165,7 @@ function OrderDetails() {
             </tr>
           </thead>
           <tbody>
-            {orderDetails.cart.map((item) => (
+            {orderDetails?.cart?.map((item) => (
               <tr key={item.product._id}>
                 <td>
                   <img src={item.product.images[0].url} alt="" />
